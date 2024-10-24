@@ -1,2 +1,15 @@
-//lists all documents in the collection school
-db.school.find({ name: "Holberton school" });
+// A script that lists all documents in the collection School
+
+if (typeof db === 'undefined') {
+	print('Usage: mongo <database_name>');
+	quit();
+}
+
+let dbName = db.getName();
+let  dBase = db.getSiblingDB(dbName);
+
+let listAll = dBase.school.find();
+
+while (listAll.hasNext()) {
+	printjson(listAll.next());
+}
