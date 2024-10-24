@@ -1,2 +1,14 @@
 //inserts a document in the collection school
-db.school.insertOne({ name: "Holberton school" });
+if (typeof db === 'undefined') {
+    print('Usage: mongo <database_name>');
+    quit();
+}
+
+let dbName = db.getName();
+let dBase = db.getSiblingDB(dbName);
+
+let collection = dBase.school.find();
+
+while (collection.hasNext()) {
+    printjson(collection.next());
+}
