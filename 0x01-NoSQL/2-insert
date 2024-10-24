@@ -4,11 +4,11 @@ if (typeof db === 'undefined') {
     quit();
 }
 
+// Connect to database
 let dbName = db.getName();
 let dBase = db.getSiblingDB(dbName);
 
-let collection = dBase.school.find();
-
-while (collection.hasNext()) {
-    printjson(collection.next());
-}
+// Insert document 
+dBase.school.insert({
+    "name": "Holberton school"
+});
