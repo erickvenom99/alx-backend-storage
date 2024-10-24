@@ -1,0 +1,16 @@
+// A script that adds  new attribute to a document in collection school
+
+if (typeof db === 'undefined') {
+    print('Usage: mongo <database_name>');
+    quit();
+}
+
+// Connect to database
+let dbName = db.getName();
+let dBase = db.getSiblingDB(dbName);
+
+dBase.school.update(
+    { "name": "Holberton school" },
+    { $set: { "address": "972 Mission street" } },
+    { multi: true }
+);

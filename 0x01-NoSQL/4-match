@@ -1,0 +1,16 @@
+//script list all documents with name="Holberton school" 
+
+if (typeof db === 'undefined') {
+    print('Usage: mongo <database_name>');
+    quit();
+}
+
+// Connect to database
+let dbName = db.getName();
+let dBase = db.getSiblingDB(dbName);
+
+let collection = dBase.school.find({ "name": "Holberton school"});
+
+while (collection.hasNext()) {
+    printjson(collection.next());
+}

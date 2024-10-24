@@ -1,0 +1,14 @@
+// A script that displays the number of documents in the collection school
+
+if (typeof db === 'undefined') {
+    print('Usage: mongo <database_name>');
+    quit();
+}
+
+// Connect to database
+let dbName = db.getName();
+let dBase = db.getSiblingDB(dbName);
+
+var count = dBase.school.count();
+
+print(count);
