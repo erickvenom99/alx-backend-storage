@@ -9,6 +9,6 @@ if (typeof db === 'undefined') {
 let dbName = db.getName();
 let dBase = db.getSiblingDB(dbName);
 
-var count = dBase.school.count();
+let count = dBase.school.count();
 
 print(count);
